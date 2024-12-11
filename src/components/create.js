@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import './create.css'
 
 const Create = () => {
 
@@ -19,10 +20,9 @@ const Create = () => {
 
     return (
         <div>
-            <h3>Hello from create component!</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Add Movie Title: </label>
+                    <label >Add Game Title: </label>
                     <input type="text"
                         className="form-control"
                         value={title}
@@ -30,7 +30,7 @@ const Create = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Add Movie Year: </label>
+                    <label>Add Game Publishing Year: </label>
                     <input type="text"
                         className="form-control"
                         value={year}
@@ -38,15 +38,17 @@ const Create = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Add Movie Poster: </label>
-                    <input type="text"
+                    <label>Write Review: </label>
+                    <textarea type="text"
                         className="form-control"
+                        placeholder="Make sure to sign off your review!"
+                        rows="20"
                         value={poster}
                         onChange={(e) => { setPoster(e.target.value) }}
                     />
                 </div>
                 <div>
-                    <input type="submit" value="Add Movie"></input>
+                    <input type="submit" value="Publish Review"></input>
                 </div>
             </form>
         </div>
