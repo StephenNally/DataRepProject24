@@ -19,48 +19,48 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:admin@cluster0.zw5qs.mongodb.net/');
 
-const movieSchema = new mongoose.Schema({
+const gameSchema = new mongoose.Schema({
   title:String,
   year:String,
   poster:String
 });
 
-const movieModel = new mongoose.model('sdfsdfsdf45',movieSchema);
+const gameModel = new mongoose.model('sdfsdfsdf45',gameSchema);
 
-app.get('/api/movies', async (req, res) => {
-    const movies = await movieModel.find({});
-    res.status(200).json({movies})
+app.get('/api/games', async (req, res) => {
+    const games = await gameModel.find({});
+    res.status(200).json({games})
 });
 
-app.get('/api/movie/:id', async (req ,res)=>{
-  const movie = await movieModel.findById(req.params.id);
-  res.json(movie);
+app.get('/api/game/:id', async (req ,res)=>{
+  const game = await gameModel.findById(req.params.id);
+  res.json(game);
 })
 
-app.put('/api/movie/:id', async (req, res)=>{
-  const movie = await movieModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
-  res.send(movie);
+app.put('/api/game/:id', async (req, res)=>{
+  const game = await gameModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
+  res.send(game);
 })
 
-app.post('/api/movies',async (req, res)=>{
+app.post('/api/games',async (req, res)=>{
     console.log(req.body.title);
     const {title, year, poster} = req.body;
 
-    const newMovie = new movieModel({title, year, poster});
-    await newMovie.save();
+    const newGame = new gameModel({title, year, poster});
+    await newGame.save();
 
-    res.status(201).json({"message":"Movie Added!",Movie:newMovie});
+    res.status(201).json({"message":"Game Added!",Game:newGame});
 })
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-app.delete('/api/movie/:id', async (req, res) => {
+app.delete('/api/game/:id', async (req, res) => {
   
-  console.log('Deleting movie with ID:', req.params.id);
-  const movie = await movieModel.findByIdAndDelete(req.params.id);
-  res.status(200).send({ message: "Movie deleted successfully", movie });
+  console.log('Deleting game with ID:', req.params.id);
+  const game = await gameModel.findByIdAndDelete(req.params.id);
+  res.status(200).send({ message: "Game deleted successfully", game });
   
 }
 );

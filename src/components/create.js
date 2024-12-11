@@ -10,10 +10,10 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const movie = {title,year,poster};
-        console.log(movie);
+        const game = {title,year,poster};
+        console.log(game);
 
-        axios.post('http://localhost:4000/api/movies',movie)
+        axios.post('http://localhost:4000/api/gamess',game)
         .then((res)=>{console.log(res.data)})
         .catch();
     }

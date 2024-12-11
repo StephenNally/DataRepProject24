@@ -11,7 +11,7 @@ const Edit = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/api/movie/'+id)
+        axios.get('http://localhost:4000/api/game/'+id)
         .then((res)=>{
             console.log("sucess "+res.data);
             setTitle(res.data.title);
@@ -24,10 +24,10 @@ const Edit = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const movie = {title,year,poster};
-        console.log(movie);
+        const game = {title,year,poster};
+        console.log(game);
 
-        axios.put('http://localhost:4000/api/movie/'+id, movie)
+        axios.put('http://localhost:4000/api/game/'+id, game)
         .then((res)=>{
             console.log("Edited: "+res.data);
             navigate('/read');
@@ -40,10 +40,9 @@ const Edit = () => {
 
     return (
         <div>
-            <h3>Hello from edit component!</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Edit Movie Title: </label>
+                    <label>Edit Game Name: </label>
                     <input type="text"
                         className="form-control"
                         value={title}
@@ -51,7 +50,7 @@ const Edit = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Movie Year: </label>
+                    <label>Edit Game Publishing Year: </label>
                     <input type="text"
                         className="form-control"
                         value={year}
@@ -59,15 +58,17 @@ const Edit = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Movie Poster: </label>
-                    <input type="text"
+                    <label>Edit Review: </label>
+                    <textarea type="text"
                         className="form-control"
+                        placeholder="Make sure to sign off your review!"
+                        rows="20"
                         value={poster}
                         onChange={(e) => { setPoster(e.target.value) }}
                     />
                 </div>
                 <div>
-                    <input type="submit" value="Edit Movie"></input>
+                    <input type="submit" value="Confirm Edit"></input>
                 </div>
             </form>
         </div>
