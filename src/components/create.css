@@ -1,3 +1,22 @@
 .review-box {
     height : 500px;
-  }
+}
+
+.form-control {
+  background-color: #1e3657;
+  color: #333;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-control::placeholder {
+  color: #98bff5; 
+  opacity: 1;
+}
+
+.form-control:focus {
+  background-color: #1e3657;  
+  color: #98bff5;
+}
+
+  

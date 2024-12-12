@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import './create.css'
 
 const Edit = () => {
     const {id} = useParams();
@@ -44,8 +45,9 @@ const Edit = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Edit Game Name: </label>
+                    <label style={{color: "white",}}>Edit Game Name: </label>
                     <input type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
@@ -53,8 +55,9 @@ const Edit = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Game Publishing Year: </label>
+                    <label style={{color: "white",}}>Edit Game Publishing Year: </label>
                     <input type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         value={year}
                         onChange={(e) => { setYear(e.target.value) }}
@@ -62,8 +65,9 @@ const Edit = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Review: </label>
+                    <label style={{color: "white",}}>Edit Review: </label>
                     <textarea type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         placeholder="Make sure to sign off your review!"
                         rows="20"
@@ -75,6 +79,7 @@ const Edit = () => {
                 <div className="form-group">
                     <label>Username:</label>
                     <input  type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}

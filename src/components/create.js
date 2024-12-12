@@ -11,7 +11,11 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const game = {title,year,review, username};
+
+        // Get the current date and time
+        const createdAt = new Date().toLocaleString();
+
+        const game = {title,year,review, username, createdAt};
         console.log(game);
 
         axios.post('http://localhost:4000/api/games', game)
@@ -34,8 +38,9 @@ const Create = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label >Add Game Title: </label>
-                    <input type="text"
+                    <label style={{color: "white",}}>Add Game Title: </label>
+                    <input  type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
@@ -43,8 +48,9 @@ const Create = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Add Game Publishing Year: </label>
+                    <label style={{color: "white",}}>Add Game Publishing Year: </label>
                     <input type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         value={year}
                         onChange={(e) => { setYear(e.target.value) }}
@@ -52,8 +58,9 @@ const Create = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Write Review: </label>
+                    <label style={{color: "white",}}>Write Review: </label>
                     <textarea type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         placeholder="Make sure to sign off your review!"
                         rows="20"
@@ -63,8 +70,9 @@ const Create = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Username:</label>
+                    <label style={{color: "white",}}>Username:</label>
                     <input  type="text"
+                        style={{ color: '#98bff5' }}
                         className="form-control"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}

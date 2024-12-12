@@ -23,7 +23,8 @@ const gameSchema = new mongoose.Schema({
   title:String,
   year:String,
   review:String,
-  username:String
+  username:String,
+  createdAt: { type: Date, default: Date.now }
 });
 
 const gameModel = new mongoose.model('sdfsdfsdf45',gameSchema);

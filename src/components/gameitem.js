@@ -30,6 +30,7 @@ const handleDelete = (e)=>{
           <footer>Release: {props.mygame.year}</footer>
           <footer>{props.mygame.review}</footer>
           <footer>Review by: {props.mygame.username}</footer>
+          <footer>Posted on: {new Date(props.mygame.createdAt).toLocaleString()}</footer>
         
           </blockquote>
         </Card.Body>
