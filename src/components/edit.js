@@ -8,6 +8,7 @@ const Edit = () => {
     const [title, setTitle] = useState('');
     const [year, setYear] = useState('');
     const [review, setReview] = useState('');
+    const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -17,6 +18,7 @@ const Edit = () => {
             setTitle(res.data.title);
             setYear(res.data.year);
             setReview(res.data.review);
+            setUsername(res.data.username);
         })
         .catch((err)=>{console.log(err)});
     },[id]);
@@ -24,7 +26,7 @@ const Edit = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const game = {title,year,review};
+        const game = {title,year,review, username};
         console.log(game);
 
         axios.put('http://localhost:4000/api/game/'+id, game)
@@ -65,6 +67,14 @@ const Edit = () => {
                         rows="20"
                         value={review}
                         onChange={(e) => { setReview(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Username:</label>
+                    <input  type="text"
+                        className="form-control"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
                 <div>

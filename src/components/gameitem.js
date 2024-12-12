@@ -24,11 +24,12 @@ const handleDelete = (e)=>{
   return (
     <div>
       <Card>
-        <Card.Header>{props.mygame.title}</Card.Header>
+        <Card.Header style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{props.mygame.title}</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
-          <div>{props.mygame.review}</div>
-            <footer>{props.mygame.year}</footer>
+          <footer>Release: {props.mygame.year}</footer>
+          <footer>{props.mygame.review}</footer>
+          <footer>Review by: {props.mygame.username}</footer>
         
           </blockquote>
         </Card.Body>

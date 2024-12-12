@@ -22,7 +22,8 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.zw5qs.mongodb.net/');
 const gameSchema = new mongoose.Schema({
   title:String,
   year:String,
-  poster:String
+  review:String,
+  username:String
 });
 
 const gameModel = new mongoose.model('sdfsdfsdf45',gameSchema);
@@ -44,9 +45,9 @@ app.put('/api/game/:id', async (req, res)=>{
 
 app.post('/api/games',async (req, res)=>{
     console.log(req.body.title);
-    const {title, year, poster} = req.body;
+    const {title, year, review, username} = req.body;
 
-    const newGame = new gameModel({title, year, poster});
+    const newGame = new gameModel({title, year, review, username});
     await newGame.save();
 
     res.status(201).json({"message":"Game Added!",Game:newGame});
@@ -65,24 +66,3 @@ app.delete('/api/game/:id', async (req, res) => {
 }
 );
 
-// {
-//   "Title": "Avengers: Infinity War (server)",
-//   "Year": "2018",
-//   "imdbID": "tt4154756",
-//   "Type": "movie",
-//   "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-// },
-// {
-//   "Title": "Captain America: Civil War (server)",
-//   "Year": "2016",
-//   "imdbID": "tt3498820",
-//   "Type": "movie",
-//   "Poster": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-// },
-// {
-//   "Title": "World War Z (server)",
-//   "Year": "2013",
-//   "imdbID": "tt0816711",
-//   "Type": "movie",
-//   "Poster": "https://m.media-amazon.com/images/M/MV5BNDQ4YzFmNzktMmM5ZC00MDZjLTk1OTktNDE2ODE4YjM2MjJjXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
-// }
