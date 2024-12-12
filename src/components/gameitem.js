@@ -34,8 +34,8 @@ const handleDelete = (e)=>{
         
           </blockquote>
         </Card.Body>
-        <Link className="btn btn-primary" to={"/edit/"+props.mygame._id}>Edit</Link>
-        <Button className="btn btn-danger" onClick={handleDelete}>Delete</Button>
+        <Link className="btn edit-button" to={"/edit/"+props.mygame._id}>Edit</Link>
+        <Button className="btn delete-button" onClick={handleDelete}>Delete</Button>
       </Card>
     </div>
   );
