@@ -7,6 +7,7 @@ import Content from './components/content';
 import Read from './components/read';
 import Create from './components/create';
 import Edit from './components/edit';
+import './App.css';
 
 function App() {
   return (

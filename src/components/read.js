@@ -22,7 +22,7 @@ function Read() {
 
     return (
         <div>
-            <h2>Game List</h2>
+            <h2 style={{ color: "white" }} >Review Library</h2>
             <Games myGames={data} ReloadData={Reload} />
         </div>
     );

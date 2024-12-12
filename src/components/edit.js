@@ -49,6 +49,7 @@ const Edit = () => {
                         className="form-control"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -57,6 +58,7 @@ const Edit = () => {
                         className="form-control"
                         value={year}
                         onChange={(e) => { setYear(e.target.value) }}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -67,6 +69,7 @@ const Edit = () => {
                         rows="20"
                         value={review}
                         onChange={(e) => { setReview(e.target.value) }}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -75,6 +78,7 @@ const Edit = () => {
                         className="form-control"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        required
                     />
                 </div>
                 <div>

@@ -23,9 +23,9 @@ const handleDelete = (e)=>{
 }
   return (
     <div>
-      <Card>
-        <Card.Header style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{props.mygame.title}</Card.Header>
-        <Card.Body>
+      <Card style={{backgroundColor: '#1e3657', color: '#98bff5', marginBottom: '30px'}}>
+        <Card.Header style={{ fontSize: '1.5rem', fontWeight: 'bold' ,}}>{props.mygame.title}</Card.Header>
+        <Card.Body style={{padding: '20px', borderRadius: '8px',}}>
           <blockquote className="blockquote mb-0">
           <footer>Release: {props.mygame.year}</footer>
           <footer>{props.mygame.review}</footer>
