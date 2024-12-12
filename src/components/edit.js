@@ -7,7 +7,7 @@ const Edit = () => {
     const {id} = useParams();
     const [title, setTitle] = useState('');
     const [year, setYear] = useState('');
-    const [poster, setPoster] = useState('');
+    const [review, setReview] = useState('');
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -16,7 +16,7 @@ const Edit = () => {
             console.log("sucess "+res.data);
             setTitle(res.data.title);
             setYear(res.data.year);
-            setPoster(res.data.poster);
+            setReview(res.data.review);
         })
         .catch((err)=>{console.log(err)});
     },[id]);
@@ -24,7 +24,7 @@ const Edit = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const game = {title,year,poster};
+        const game = {title,year,review};
         console.log(game);
 
         axios.put('http://localhost:4000/api/game/'+id, game)
@@ -63,8 +63,8 @@ const Edit = () => {
                         className="form-control"
                         placeholder="Make sure to sign off your review!"
                         rows="20"
-                        value={poster}
-                        onChange={(e) => { setPoster(e.target.value) }}
+                        value={review}
+                        onChange={(e) => { setReview(e.target.value) }}
                     />
                 </div>
                 <div>

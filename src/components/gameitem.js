@@ -27,8 +27,9 @@ const handleDelete = (e)=>{
         <Card.Header>{props.mygame.title}</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
-            <img src={props.mygame.poster} alt={props.mygame.title} />
+          <div>{props.mygame.review}</div>
             <footer>{props.mygame.year}</footer>
+        
           </blockquote>
         </Card.Body>
         <Link className="btn btn-primary" to={"/edit/"+props.mygame._id}>Edit</Link>

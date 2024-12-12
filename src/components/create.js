@@ -6,16 +6,28 @@ const Create = () => {
 
     const [title, setTitle] = useState('');
     const [year, setYear] = useState('');
-    const [poster, setPoster] = useState('');
+    const [review, setReview] = useState('');
+    const [username, setUsername] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const game = {title,year,poster};
+        const game = {title,year,review, username};
         console.log(game);
 
-        axios.post('http://localhost:4000/api/gamess',game)
-        .then((res)=>{console.log(res.data)})
-        .catch();
+        axios.post('http://localhost:4000/api/games', game)
+        .then((res) => {
+            console.log(res.data);
+            alert('Review submitted successfully!');
+            // clear form
+            setTitle('');
+            setYear('');
+            setReview('');
+            setUsername('');
+        })
+        .catch((err) => {
+            console.error('Error:', err);
+            alert('Failed to submit the review.');
+        });
     }
 
     return (
@@ -43,8 +55,16 @@ const Create = () => {
                         className="form-control"
                         placeholder="Make sure to sign off your review!"
                         rows="20"
-                        value={poster}
-                        onChange={(e) => { setPoster(e.target.value) }}
+                        value={review}
+                        onChange={(e) => { setReview(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Username:</label>
+                    <input  type="text"
+                        className="form-control"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
                 <div>
