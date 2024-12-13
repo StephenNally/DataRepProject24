@@ -15,6 +15,7 @@ const handleDelete = (e)=>{
 
   axios.delete('http://localhost:4000/api/game/'+props.mygame._id)
   .then((res)=>{
+    // Call reload from props to refresh the game list
     props.Reload();
   })
   .catch((error)=>{

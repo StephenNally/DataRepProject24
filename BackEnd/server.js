@@ -29,21 +29,25 @@ const gameSchema = new mongoose.Schema({
 
 const gameModel = new mongoose.model('sdfsdfsdf45',gameSchema);
 
+//fetches all game reviews
 app.get('/api/games', async (req, res) => {
     const games = await gameModel.find({});
     res.status(200).json({games})
 });
 
+//fetch game by id
 app.get('/api/game/:id', async (req ,res)=>{
   const game = await gameModel.findById(req.params.id);
   res.json(game);
 })
 
+//find game by id and update
 app.put('/api/game/:id', async (req, res)=>{
   const game = await gameModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
   res.send(game);
 })
 
+//new game review
 app.post('/api/games',async (req, res)=>{
     console.log(req.body.title);
     const {title, year, review, username} = req.body;
@@ -58,6 +62,7 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
+//delete game
 app.delete('/api/game/:id', async (req, res) => {
   
   console.log('Deleting game with ID:', req.params.id);

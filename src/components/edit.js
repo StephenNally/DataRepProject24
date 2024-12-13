@@ -24,12 +24,13 @@ const Edit = () => {
         .catch((err)=>{console.log(err)});
     },[id]);
 
-
+    //review submission
     const handleSubmit = (e) => {
         e.preventDefault();
         const game = {title,year,review, username};
         console.log(game);
 
+        //request to update game data
         axios.put('http://localhost:4000/api/game/'+id, game)
         .then((res)=>{
             console.log("Edited: "+res.data);
