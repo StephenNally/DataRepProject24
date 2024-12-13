@@ -42,14 +42,14 @@ npm start
 
 The app should now be running locally at http://localhost:3000 (frontend) and http://localhost:4000 (backend).
 
-**Usage**
+### **Usage**
 Once the app is running, you can:
 
 Add a Game Review: Use the form to submit a game title, year, review, and username.
 Edit Reviews: Modify any existing game review by selecting the edit button.
 Delete Reviews: Remove a game review by clicking the delete button.
 
-**API Endpoints**
+### **API Endpoints**
 The backend exposes the following API routes for interacting with the game reviews:
 
 - GET /api/games: Fetch all game reviews.
@@ -57,7 +57,7 @@ The backend exposes the following API routes for interacting with the game revie
 - PUT /api/game/:id: Update a specific game review.
 - DELETE /api/game/:id: Delete a specific game review.
 
-**Frontend (React Components)**
+### **Frontend (React Components)**
 Key Components:
 - Create: Form to add new game reviews.
 - Card: Displays individual game reviews.
